@@ -41,3 +41,14 @@ it('should find all subtitles by time', () => {
         { start: 1500, end: 2000, id: 'a3' }
     ])
 })
+
+it('should find nothing', () => {
+    const subtitles = [
+        { start: 500, end: 1000, id: 'a1' },
+        { start: 1000, end: 1500, id: 'a2' },
+        { start: 1000, end: 1700, id: 'a3' }
+    ]
+    const { result } = renderHook(() => useSubtitles(subtitles))
+    const query = result.current.find(1700)
+    expect(query).toEqual([])
+})

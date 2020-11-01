@@ -58,6 +58,16 @@ it('should find all objects by time', () => {
     ])
 })
 
+it('should find nothing', () => {
+    stList.subtitles = [
+        { start: 1000, end: 2000, id: 'a1' },
+        { start: 1000, end: 1500, id: 'a2' },
+        { start: 1500, end: 2000, id: 'a3' }
+    ]
+    const result = stList.findAll(2000)
+    expect(result).toEqual([])
+})
+
 it('should find object under 8ms', () => {
     const cycles = 10000
     const subtitles = Array

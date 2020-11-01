@@ -1,5 +1,3 @@
-import {nanoid} from 'nanoid'
-
 export interface Subtitle {
     id: string
     start: number
@@ -57,13 +55,14 @@ export default class SubtitleList<ST extends Subtitle>{
             return -1
         if (time < this._lastSubtitle.start)
             this._lastIndex = 0
-        while(this._lastIndex < this._subtitles.length) {
+        this._lastIndex -= 1
+        while(++this._lastIndex < this._subtitles.length) {
             if (this._lastSubtitle.start > time)
                 return -1
             if (this._lastSubtitle.start <= time && time < this._lastSubtitle.end)
                 return this._lastIndex
-            this._lastIndex++
         }
+        this._lastIndex -= 1
         return -1
     }
 
