@@ -1,0 +1,32 @@
+{
+  "name": "subtitle-list",
+  "source": "src/index.ts",
+  "main": "dist/subtitle-list.js",
+  "module": "dist/subtitle-list.m.js",
+  "esmodule": "dist/subtitle-list.modern.js",
+  "unpkg": "dist/subtitle-list.umd.js",
+  "types": "dist/subtitle-list.d.ts",
+  "version": "1.0.0",
+  "author": "Asuka109",
+  "license": "None",
+  "scripts": {
+    "build": "microbundle"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-typescript": "^7.12.1",
+    "@testing-library/react": "^11.1.0",
+    "@types/jest": "^26.0.15",
+    "@types/react": "^16.9.55",
+    "babel-jest": "^26.6.1",
+    "babel-plugin-root-import": "^6.6.0",
+    "babel-preset-env": "^1.7.0",
+    "jest": "^26.6.1",
+    "microbundle": "^0.12.4",
+    "nanoid": "^3.1.16"
+  },
+  "peerDependencies": {
+    "react": "^17.0.1"
+  }
+}
