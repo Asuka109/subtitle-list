@@ -6,12 +6,16 @@
   "esmodule": "dist/subtitle-list.modern.js",
   "unpkg": "dist/subtitle-list.umd.js",
   "types": "dist/subtitle-list.d.ts",
-  "version": "1.0.0",
+  "version": "1.0.5",
   "author": "Asuka109",
   "license": "MIT",
   "scripts": {
-    "build": "microbundle"
+    "build": "rimraf dist && microbundle",
+    "prepublish": "npm run build"
   },
+  "files": [
+    "dist/**/*"
+  ],
   "devDependencies": {
     "@babel/core": "^7.12.3",
     "@babel/preset-env": "^7.12.1",
