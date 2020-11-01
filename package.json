@@ -8,7 +8,7 @@
   "types": "dist/subtitle-list.d.ts",
   "version": "1.0.0",
   "author": "Asuka109",
-  "license": "None",
+  "license": "MIT",
   "scripts": {
     "build": "microbundle"
   },
@@ -16,7 +16,7 @@
     "@babel/core": "^7.12.3",
     "@babel/preset-env": "^7.12.1",
     "@babel/preset-typescript": "^7.12.1",
-    "@testing-library/react": "^11.1.0",
+    "@testing-library/react-hooks": "^3.4.2",
     "@types/jest": "^26.0.15",
     "@types/react": "^16.9.55",
     "babel-jest": "^26.6.1",
@@ -24,7 +24,9 @@
     "babel-preset-env": "^1.7.0",
     "jest": "^26.6.1",
     "microbundle": "^0.12.4",
-    "nanoid": "^3.1.16"
+    "nanoid": "^3.1.16",
+    "react": "^17.0.1",
+    "react-test-renderer": "^17.0.1"
   },
   "peerDependencies": {
     "react": "^17.0.1"

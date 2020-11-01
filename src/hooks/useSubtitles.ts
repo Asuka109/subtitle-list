@@ -12,6 +12,9 @@ const useSubtitles = <ST extends Subtitle>(subtitles: ST[] = []) => {
         },
         fill(subtitles: ST[]) {
             subtitleList.current.subtitles = subtitles
+        },
+        get subtitles(): ST[] {
+            return subtitleList.current.subtitles
         }
     }), [])
 }

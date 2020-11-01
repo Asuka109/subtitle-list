@@ -1,3 +1,5 @@
+import {nanoid} from 'nanoid'
+
 export interface Subtitle {
     id: string
     start: number
@@ -19,10 +21,18 @@ export default class SubtitleList<ST extends Subtitle>{
         return this._subtitles[this._lastIndex]
     }
 
+    /*
+    * Get current subtitles' copy.
+    * */
     get subtitles(): ST[] {
         return this._subtitles.slice()
     }
 
+    /*
+    * Set current subtitles.
+    * Note that the subtitles will be sorted first and rebuilt
+    * and the mapping of id to index will be rebuilt.
+    * */
     set subtitles(subtitles: ST[]) {
         this._subtitles = subtitles.slice()
         this._subtitles.sort(subtitleListSortFn)
@@ -35,6 +45,9 @@ export default class SubtitleList<ST extends Subtitle>{
         return this._idDict.get(id) ?? -1
     }
 
+    /*
+    * Get a subtitle object by id.
+    * */
     get(id: string): ST | undefined {
         return this._subtitles[this.getIndex(id)]
     }
@@ -72,3 +85,13 @@ export default class SubtitleList<ST extends Subtitle>{
         return result
     }
 }
+
+export const getSampleSubtitles = () => Array
+    .from(Array(10))
+    .map(
+        (_, i) => ({
+            start: i * 1000,
+            end: i * 1000 + 500,
+            id: `SampleSubtitle_${i}`
+        })
+    )
