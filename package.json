@@ -6,7 +6,7 @@
   "esmodule": "dist/subtitle-list.modern.js",
   "unpkg": "dist/subtitle-list.umd.js",
   "types": "dist/subtitle-list.d.ts",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "author": "Asuka109",
   "license": "MIT",
   "scripts": {

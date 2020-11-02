@@ -79,7 +79,7 @@ export default class SubtitleList<ST extends Subtitle>{
         let index = this.findIndex(start)
         if (index < 0)
             return []
-        while (this._subtitles[index] && this._subtitles[index].end > end)
+        while (this._subtitles[index] && this._subtitles[index].start <= end && this._subtitles[index].end > start)
             result.push(this._subtitles[index++])
         return result
     }

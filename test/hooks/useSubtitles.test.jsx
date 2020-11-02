@@ -40,6 +40,16 @@ it('should find all subtitles by time', () => {
         { start: 1000, end: 2000, id: 'a1' },
         { start: 1500, end: 2000, id: 'a3' }
     ])
+    const subtitles2 = [
+        { start: 500, end: 1000, id: 'a1' },
+        { start: 1000, end: 1500, id: 'a2' },
+        { start: 1000, end: 1700, id: 'a3' }
+    ]
+    act(() => result.current.fill(subtitles2))
+    const query2 = result.current.find(500)
+    expect(query2).toEqual([
+        { start: 500, end: 1000, id: 'a1' }
+    ])
 })
 
 it('should find nothing', () => {
