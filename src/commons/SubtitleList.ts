@@ -7,9 +7,9 @@ export interface Subtitle {
 const subtitleListSortFn = (a: Subtitle, b: Subtitle): number => a.start - b.start || a.end - b.end
 
 export default class SubtitleList<ST extends Subtitle>{
-    _subtitles: ST[] = []
-    _lastIndex = 0  // between 0 and _subtitles.length - 1
-    _idDict: Map<string, number> = new Map<string, number>()
+    private _subtitles: ST[] = []
+    private _lastIndex = 0  // between 0 and _subtitles.length - 1
+    private _idDict: Map<string, number> = new Map<string, number>()
 
     constructor(subtitles: ST[]) {
         this.subtitles = subtitles
@@ -39,7 +39,7 @@ export default class SubtitleList<ST extends Subtitle>{
         subtitles.forEach((subtitle, index) => this._idDict.set(subtitle.id, index))
     }
 
-    private getIndex(id: string): number {
+    getIndex(id: string): number {
         return this._idDict.get(id) ?? -1
     }
 
@@ -50,7 +50,7 @@ export default class SubtitleList<ST extends Subtitle>{
         return this._subtitles[this.getIndex(id)]
     }
 
-    private findIndex(time: number): number {
+    findIndex(time: number): number {
         if (this._subtitles.length <= 0)
             return -1
         if (time < this._lastSubtitle.start)

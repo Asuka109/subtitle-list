@@ -7,6 +7,10 @@ const useSubtitles = <ST extends Subtitle>(subtitles: ST[] = []) => {
         get(id: string): ST {
             return subtitleList.current.get(id)
         },
+        index(target: string | Subtitle) {
+            const id = typeof target === 'string' ? target : target.id
+            return subtitleList.current.getIndex(id)
+        },
         find(start: number, end?: number): ST[] {
             return subtitleList.current.between(start, end ?? start)
         },
